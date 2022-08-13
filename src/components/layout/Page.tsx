@@ -1,6 +1,8 @@
 import { FC, ReactNode, Ref } from 'react'
 import Head from 'next/head'
 
+import Header from './Header'
+
 interface LayoutProps {
   children: ReactNode
   layoutRef: Ref<HTMLDivElement>
@@ -30,6 +32,7 @@ const PageLayout: FC<LayoutProps> = ({ children, layoutRef }) => {
         <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
         <link rel='manifest' href='/site.webmanifest'></link>
       </Head>
+      <Header />
       <div className='w-full min-h-screen overflow-x-hidden bg-dark text-white'>
         <main className='w-full mx-auto' data-scroll-container ref={layoutRef}>
           {children}
