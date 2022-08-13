@@ -1,7 +1,21 @@
 import type { NextPage } from 'next'
 
+import {
+  HeroSection,
+  AboutSection,
+  ServicesSection,
+  GallerySection,
+} from '@/containers'
+
 const Home: NextPage = () => {
-  return <main className="max-w-7xl relative mx-auto">main</main>
+  return (
+    <>
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <GallerySection />
+    </>
+  )
 }
 
 export default Home
