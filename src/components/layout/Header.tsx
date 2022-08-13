@@ -1,4 +1,11 @@
-import { FC, useState, useEffect, useRef, MutableRefObject } from 'react'
+import {
+  FC,
+  useState,
+  useEffect,
+  useRef,
+  MutableRefObject,
+  useLayoutEffect,
+} from 'react'
 import gsap from 'gsap'
 
 import { navData } from '@/data'
@@ -18,6 +25,16 @@ const NavBar: FC = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen)
   }
+  useLayoutEffect(() => {
+    gsap.set(menuWrapper.current, {
+      opacity: 0,
+      pointerEvents: 'none',
+    })
+    gsap.set(menuFooter.current, {
+      opacity: 0,
+      ease: 'expo.out',
+    })
+  }, [])
 
   useEffect(() => {
     if (menuOpen) {
@@ -79,7 +96,7 @@ const NavBar: FC = () => {
     <>
       <header
         className={[
-          'fixed flex items-center justify-between w-full px-16 py-6 mirror  z-[99]',
+          'fixed flex items-center justify-between w-full px-16 py-6 mirror z-[99]',
           menuOpen ? 'bg-black' : 'bg-dark',
         ].join(' ')}
       >
@@ -125,7 +142,7 @@ const NavBar: FC = () => {
       </header>
       <nav
         className={[
-          'fixed top-0 left-0 h-screen bg-black tr transition-opacity flex flex-col items-center justify-center',
+          'fixed top-0 left-0 h-screen bg-black tr transition-opacity flex flex-col items-center justify-center  opacity-0',
           // menuOpen
           //   ? 'opacity-100 pointer-events-auto z-[9998]'
           //   : 'opacity-0 pointer-events-none z-[-1]',
