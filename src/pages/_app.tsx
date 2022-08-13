@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { LocomotiveScrollProvider as RLSProvider } from 'react-locomotive-scroll'
 
 import 'locomotive-scroll/dist/locomotive-scroll.css'
-import '@/styles/globals.css'
+import '@/styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { asPath } = useRouter()
