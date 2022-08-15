@@ -64,14 +64,14 @@ const Header: FC = () => {
   useEffect(() => {
     const openmenubutton =
       gsap.utils.selector('#js--menu-button')('#js--menu-open')
-    const openmenubuttonsvg = gsap.utils.selector('#js--menu-button')(
-      '#js--menu-open > svg > line'
-    )
+    // const openmenubuttonsvg = gsap.utils.selector('#js--menu-button')(
+    //   '#js--menu-open > svg > line'
+    // )
     const closemenubutton =
       gsap.utils.selector('#js--menu-button')('#js--menu-close')
-    const closemenubuttonsvg = gsap.utils.selector('#js--menu-button')(
-      '#js--menu-close > svg > line'
-    )
+    // const closemenubuttonsvg = gsap.utils.selector('#js--menu-button')(
+    //   '#js--menu-close > svg > line'
+    // )
 
     gsap.set(closemenubutton, {
       opacity: 0,
@@ -160,7 +160,7 @@ const Header: FC = () => {
         <div className='relative flex-1 flex items-center justify-end'>
           <nav id='js--navbar' className='absolute'>
             <ul>
-              {navData.map((item, i) =>
+              {navData.map((item) =>
                 item.title.toLowerCase() === 'contact' ? (
                   <span
                     className='text-third mx-2 font-title text-sm'
@@ -209,7 +209,7 @@ const Header: FC = () => {
       </header>
       <nav id='js--menu' className='absolute'>
         <ul>
-          {navData.map((item, i) =>
+          {navData.map((item) =>
             item.title.toLowerCase() === 'contact' ? (
               <span className='text-accent mx-2 font-title' key={item.title}>
                 {item.title} Us

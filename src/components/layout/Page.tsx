@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, ReactNode, Ref, useRef, useEffect } from 'react'
+import { FC, MutableRefObject, ReactNode, useRef, useEffect } from 'react'
 import Head from 'next/head'
 import gsap from 'gsap'
 
@@ -36,6 +36,7 @@ const PageLayout: FC<LayoutProps> = ({ children }) => {
   // 5.
   useEffect(() => {
     requestAnimationFrame(() => smoothScrollingHandler())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const smoothScrollingHandler = () => {

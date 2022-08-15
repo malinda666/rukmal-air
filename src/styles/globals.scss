@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './locomotive-scroll.scss';
 @import './fonts.scss';
+@import './sections.scss';
 
 html,
 body {
@@ -23,7 +23,7 @@ a {
 }
 
 section {
-  min-height: 90vh;
+  min-height: 80vh;
   display: flex;
 }
 svg.menuicon {
@@ -63,39 +63,4 @@ svg.menuicon {
 }
 .font-md {
   font-size: 10vw;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-  gap: 1em 1em;
-  grid-auto-flow: row;
-  justify-items: center;
-  align-items: center;
-  grid-template-areas:
-    '. . . . . .'
-    'hero-left hero-left . . . .'
-    'hero-left hero-left hero-video hero-video . .'
-    'hero-left hero-left hero-video hero-video . .'
-    'hero-left hero-left . . hero-right hero-right'
-    'hero-intro hero-intro . . hero-right hero-right'
-    'hero-intro hero-intro . . hero-right hero-right';
-}
-
-.hero-video {
-  grid-area: hero-video;
-}
-
-.hero-right {
-  grid-area: hero-right;
-  z-index: 3;
-}
-
-.hero-left {
-  grid-area: hero-left;
-}
-.hero-intro {
-  grid-area: hero-intro;
-  z-index: 2;
 }

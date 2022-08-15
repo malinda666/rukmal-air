@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 import { gsap } from 'gsap/dist/gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
