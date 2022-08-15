@@ -1,8 +1,8 @@
 export const navData = [
-  {
-    title: 'Home',
-    path: '/',
-  },
+  // {
+  //   title: 'Home',
+  //   path: '/',
+  // },
   {
     title: 'Services',
     path: '/',
@@ -22,11 +22,11 @@ export const navData = [
     ],
   },
   {
-    title: 'About Us',
+    title: 'About',
     path: '/',
   },
   {
-    title: 'Contact Us',
+    title: 'Contact',
     path: '/',
   },
 ]

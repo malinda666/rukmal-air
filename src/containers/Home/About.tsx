@@ -5,7 +5,7 @@ import { Button, Title } from '@/components'
 
 const About: FC = () => {
   return (
-    <section className='relative bg-light h-[150vh] mt-64' data-scroll-section>
+    <section className='relative bg-light h-[150vh] mt-64'>
       <div className='relative w-full flex flex-col items-center justify-center'>
         <div className='relative grid grid-rows-4 gap-2'>
           <Title

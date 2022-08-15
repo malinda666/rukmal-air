@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 const Gallery: FC = () => {
   return (
-    <section className='relative' data-scroll-section>
+    <section className='relative'>
       <div>gallery section</div>
     </section>
   )

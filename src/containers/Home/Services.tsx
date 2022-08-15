@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 const Services: FC = () => {
   return (
-    <section className='relative' data-scroll-section>
+    <section className='relative'>
       <div>services section</div>
     </section>
   )

@@ -5,17 +5,9 @@ import { Title } from '@/components'
 
 const Hero: FC = () => {
   return (
-    <section
-      className='relative h-[100vh] flex items-center justify-center'
-      data-scroll-section
-    >
+    <section className='relative h-[100vh] flex items-center justify-center'>
       <div className='absolute inset-0 hero-grid'>
-        <div
-          className='relative hero-left  w-full h-full'
-          data-scroll
-          data-scroll-speed='-2'
-          // data-scroll-direction='horizontal'
-        >
+        <div className='relative hero-left  w-full h-full'>
           <Image
             src='/assets/gallery-5.jpg'
             layout='fill'
@@ -39,11 +31,7 @@ const Hero: FC = () => {
             />
           </video>
         </div>
-        <div
-          className='relative hero-right w-full h-full'
-          data-scroll
-          data-scroll-speed='3'
-        >
+        <div className='relative hero-right w-full h-full'>
           <Image
             src='/assets/cockpit.jpg'
             layout='fill'
@@ -51,8 +39,13 @@ const Hero: FC = () => {
             className='relative object-cover object-center'
           />
         </div>
+        <p className='text-base text-gray-400 px-4 max-w-md h-full hero-intro pt-24'>
+          Feel the wind in your hair and the sun on your face as you experience
+          the thrill of flying in a helicopter. <br /> A once-in-a-lifetime
+          opportunity to experience the breathtaking beauty of Sri Lanka.
+        </p>
       </div>
-      <div className='relative' data-scroll data-scroll-speed='-5'>
+      <div className='relative'>
         <Title content='Rukmal' size='lg' />
         <Title content='Air Tours' size='lg' />
       </div>
