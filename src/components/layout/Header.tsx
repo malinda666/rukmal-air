@@ -5,7 +5,7 @@ import { gsap } from 'gsap/dist/gsap'
 
 import { MenuIcon, CloseIcon } from '../shared/MenuIcons'
 
-import { navData } from '@/data'
+import { navData, socialData } from '@/data'
 
 const Header: FC = () => {
   const headerWrapper = useRef() as MutableRefObject<HTMLHeadingElement>
@@ -73,6 +73,10 @@ const Header: FC = () => {
     //   '#js--menu-close > svg > line'
     // )
 
+    const menuoverlay = gsap.utils.selector(document)('#js--overlay')
+    const menuitems = gsap.utils.selector('#js--menu')('#js--menu-item')
+    const menufooter = gsap.utils.selector('#js--overlay')('#js--menu-footer')
+
     gsap.set(closemenubutton, {
       opacity: 0,
     })
@@ -88,13 +92,48 @@ const Header: FC = () => {
     })
 
     menuTl.current
-      .to(
+      .fromTo(
         openmenubutton,
+        { yPercent: 0, opacity: 1 },
         {
           yPercent: 30,
           opacity: 0,
         },
         0
+      )
+      .fromTo(
+        menuoverlay,
+        { yPercent: 150, opacity: 1, rotate: 4, scale: 1.7 },
+        {
+          yPercent: 0,
+          opacity: 1,
+          rotate: 0,
+          scale: 1,
+          duration: 1.25,
+          ease: 'expo.inOut',
+        },
+        0
+      )
+      .fromTo(
+        menuitems,
+        { yPercent: 101 },
+        {
+          yPercent: 0,
+          duration: 1.25,
+          ease: 'expo.inOut',
+        },
+        0.3
+      )
+      .fromTo(
+        menufooter,
+        { yPercent: 101, opacity: 0 },
+        {
+          yPercent: 0,
+          duration: 1.25,
+          opacity: 1,
+          ease: 'expo.out',
+        },
+        0.45
       )
       .fromTo(
         closemenubutton,
@@ -103,34 +142,9 @@ const Header: FC = () => {
           yPercent: 0,
           opacity: 1,
         },
-        0
+        0.3
       )
-
-    // .to(
-    //   openmenubuttonsvg,
-    //   {
-    //     duration: 1.25,
-
-    //     strokeDashoffset: 0.001,
-    //     strokeDasharray: '0px, 999999px',
-    //     opacity: 0,
-    //   },
-    //   0
-    // )
-    // .to(openmenubutton, { opacity: 0 }, 0.2)
-    // .to(
-    //   closemenubuttonsvg,
-    //   {
-    //     duration: 1.25,
-
-    //     strokeDashoffset: 0,
-    //     strokeDasharray: 'none',
-    //     opacity: 1,
-    //   },
-    //   0.2
-    // )
-
-    // .to(closemenubutton, { opacity: 1 }, 0.3)
+      .set(document.body, { overflow: 'hidden' }, 0.2)
   }, [])
 
   useEffect(() => {
@@ -207,25 +221,40 @@ const Header: FC = () => {
           </button>
         </div>
       </header>
-      <nav id='js--menu' className='absolute'>
-        <ul>
-          {navData.map((item) =>
-            item.title.toLowerCase() === 'contact' ? (
-              <span className='text-accent mx-2 font-title' key={item.title}>
-                {item.title} Us
-              </span>
-            ) : (
-              <span className='text-light mx-2 font-title' key={item.title}>
-                {item.title}
-              </span>
-            )
-          )}
-        </ul>
-      </nav>
       <div
-        className='fixed inset-0 h-full w-full z-[999] bg-black'
+        className='fixed inset-0 h-full w-full z-[98] bg-black flex items-center justify-center'
         id='js--overlay'
-      ></div>
+      >
+        <nav id='js--menu' className='absolute w-full'>
+          <ul className='flex flex-col w-full items-center justify-center'>
+            {navData.map((item) => (
+              <div
+                className='relative leading-[1.1] mb-4 overflow-hidden'
+                key={item.title}
+              >
+                <span
+                  className='text-light mx-2 font-title text-[5vw] navbar-item'
+                  id='js--menu-item'
+                >
+                  {item.title}
+                </span>
+              </div>
+            ))}
+          </ul>
+        </nav>
+        <div
+          className='absolute bottom-0 left-0 py-16 w-full flex items-center justify-center'
+          id='js--menu-footer'
+        >
+          {socialData.map((item) => (
+            <a href='#' key={item.title} className='m-2'>
+              <span className='text-gray-500 hover:text-gray-900 dark:hover:text-white'>
+                &#10035; {item.title}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
     </>
   )
 }
