@@ -5,6 +5,7 @@ import {
   AboutSection,
   ServicesSection,
   GallerySection,
+  ContactSection,
 } from '@/containers'
 
 const Home: NextPage = () => {
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
       <AboutSection />
       <ServicesSection />
       <GallerySection />
+      <ContactSection />
     </>
   )
 }

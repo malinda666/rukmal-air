@@ -1,10 +1,12 @@
 import { FC } from 'react'
 
+import { Section } from '@/components'
+
 const Gallery: FC = () => {
   return (
-    <section className='relative'>
+    <Section>
       <div>gallery section</div>
-    </section>
+    </Section>
   )
 }
 

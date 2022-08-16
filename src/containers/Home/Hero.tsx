@@ -2,7 +2,7 @@ import { FC, useRef, useEffect, MutableRefObject } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
 
-import { Title, Button } from '@/components'
+import { Title, Button, Section } from '@/components'
 
 const Hero: FC = () => {
   const titleContainerRef = useRef() as MutableRefObject<HTMLDivElement>
@@ -36,7 +36,7 @@ const Hero: FC = () => {
   }, [])
 
   return (
-    <section className='relative h-[100vh] flex items-center justify-center'>
+    <Section>
       <div className='absolute inset-0 hero-grid'>
         <div className='absolute hero-left  w-full h-full' ref={imageLeftRef}>
           <Image
@@ -90,7 +90,7 @@ const Hero: FC = () => {
         <Title content='Rukmal' size='lg' type='header' />
         <Title content='Air Tours' size='lg' type='header' cls='italic pr-8' />
       </div>
-    </section>
+    </Section>
   )
 }
 

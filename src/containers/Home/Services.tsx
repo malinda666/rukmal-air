@@ -1,10 +1,12 @@
 import { FC } from 'react'
 
+import { Section } from '@/components'
+
 const Services: FC = () => {
   return (
-    <section className='relative'>
+    <Section>
       <div>services section</div>
-    </section>
+    </Section>
   )
 }
 

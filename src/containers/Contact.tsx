@@ -1,10 +1,12 @@
 import { FC } from 'react'
 
+import { Section } from '@/components'
+
 const Contact: FC = () => {
   return (
-    <section className='relative' data-scroll-section>
+    <Section>
       <div>contact section</div>
-    </section>
+    </Section>
   )
 }
 

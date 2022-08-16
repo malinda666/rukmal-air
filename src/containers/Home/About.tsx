@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import Image from 'next/image'
 
-import { Button, Title } from '@/components'
+import { Button, Title, Section } from '@/components'
 
 const About: FC = () => {
   return (
-    <section className='relative bg-light h-[150vh] mt-64'>
+    <Section isLight height={150} cls='mt-64'>
       <div className='relative w-full flex flex-col items-center justify-center'>
         <div className='relative grid grid-rows-4 gap-2'>
           <Title
@@ -42,7 +42,7 @@ const About: FC = () => {
           </Button>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }
 
