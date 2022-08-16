@@ -4,6 +4,7 @@
 
 @import './fonts.scss';
 @import './sections.scss';
+@import './components.scss';
 
 html,
 body {
@@ -59,8 +60,24 @@ svg.menuicon {
   font-size: 25vw;
 }
 .font-lg {
-  font-size: 17vw;
+  font-size: 15vw;
 }
 .font-md {
   font-size: 10vw;
+}
+
+.navbar-item {
+  @apply relative inline-block cursor-pointer;
+  &::after {
+    content: '';
+    will-change: transform;
+    @apply bg-current left-0 bottom-0 h-[1px] w-full absolute;
+    transition: transform 300ms cubic-bezier(0.19, 1, 0.22, 1);
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }

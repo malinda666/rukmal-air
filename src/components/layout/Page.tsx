@@ -1,6 +1,7 @@
 import { FC, MutableRefObject, ReactNode, useRef, useEffect } from 'react'
 import Head from 'next/head'
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
 import useWindowSize from '@/hooks/useWindowSize'
 import { lerp } from '@/utils'
@@ -11,6 +12,8 @@ interface LayoutProps {
   children: ReactNode
 }
 const PageLayout: FC<LayoutProps> = ({ children }) => {
+  gsap.registerPlugin(ScrollTrigger)
+
   const windowSize = useWindowSize()
   const scrollingContainerRef = useRef() as MutableRefObject<HTMLDivElement>
 

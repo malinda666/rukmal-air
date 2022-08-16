@@ -1,15 +1,14 @@
 import React, { FC, useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 interface TitleProps {
   content: string
   size: string
   cls?: string
+  type?: string
 }
-
-const Title: FC<TitleProps> = ({ content, size, cls }) => {
-  gsap.registerPlugin(ScrollTrigger)
+const Title: FC<TitleProps> = ({ content, size, cls = '', type = '' }) => {
   const titleRef = useRef() as React.MutableRefObject<HTMLHeadingElement>
 
   useEffect(() => {
@@ -18,9 +17,24 @@ const Title: FC<TitleProps> = ({ content, size, cls }) => {
       y: '0%',
       duration: 1.25,
       ease: 'expo.out',
-      delay: 1,
+      delay: type === 'header' ? 1 : 0.2,
       stagger: { amount: 0.35, from: 'random' },
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: 'top 85%',
+      },
     })
+
+    // gsap.to(titleRef.current, {
+    //   scrollTrigger: {
+    //     trigger: trigger,
+    //     pin: true,
+    //     markers: true,
+    //     start: 'top center',
+    //     end: '+=500',
+    //     pinSpacing: true,
+    //   },
+    // })
   }, [])
 
   const getFontSize = (size: string) => {
@@ -56,7 +70,7 @@ const Title: FC<TitleProps> = ({ content, size, cls }) => {
       {content.split('').map((char, i) => (
         <span
           key={i.toString()}
-          className='relative inline-block whitespace-pre translate-y-full'
+          className='relative inline-block whitespace-pre translate-y-full '
         >
           {char}
         </span>

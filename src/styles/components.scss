@@ -1,0 +1,60 @@
+.button {
+  @apply duration-300 ease-[cubic-bezier(0.19,1,0.22,1)];
+}
+
+.cta-button,
+.button {
+  @apply cursor-pointer z-0 rounded-2xl relative bg-black outline-none border-none capitalize;
+
+  &:active {
+    @apply text-dark;
+  }
+
+  &:active::after {
+    @apply bg-transparent;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+  &::before {
+    content: '';
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+
+    @apply absolute -top-[2px] -left-[2px] -z-[1] blur-sm opacity-0 transition-opacity duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] rounded-xl;
+
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowingcta-button 20s linear infinite;
+  }
+
+  &::after {
+    z-index: -1;
+    content: '';
+    @apply absolute w-full h-full top-0 left-0 rounded-[10px] -z-[1];
+  }
+}
+
+@keyframes glowingcta-button {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

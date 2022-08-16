@@ -34,10 +34,10 @@ const About: FC = () => {
           opportunity to experience the breathtaking beauty of Sri Lanka.
         </p>
         <div className='justify-center items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 pt-8'>
-          <Button variant='third' size='lg'>
+          <Button variant='primary' size='md'>
             VIP Booking
           </Button>
-          <Button variant='outlined' size='lg'>
+          <Button variant='secondary' size='md'>
             <a href='tel:0770473278'>Medical Booking</a>
           </Button>
         </div>

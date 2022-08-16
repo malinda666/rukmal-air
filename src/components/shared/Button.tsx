@@ -16,16 +16,19 @@ const Button: FC<ButtonProps> = ({
 
     switch (variant) {
       case 'primary':
-        _color = 'text-white bg-dark'
+        _color = 'text-white bg-dark after:bg-dark'
         break
       case 'secondary':
-        _color = 'text-dark bg-light'
+        _color = 'text-light bg-light after:bg-accent'
         break
       case 'third':
-        _color = 'text-black bg-third'
+        _color = 'text-black bg-third after:bg-third'
         break
       case 'outlined':
-        _color = 'text-dark bg-transparent border border-third'
+        _color = 'text-black after:bg-light'
+        break
+      case 'cta':
+        _color = 'text-third after:bg-black'
         break
 
       default:
@@ -41,33 +44,34 @@ const Button: FC<ButtonProps> = ({
 
     switch (size) {
       case 'sm':
-        _size = 'px-3 py-1 text-sm'
+        _size = 'px-4 py-1 text-sm'
         break
       case 'md':
-        _size = 'px-5 py-2 text-base'
+        _size = 'px-6 py-2 text-base'
         break
       case 'lg':
-        _size = 'px-7 py-3 text-xl'
+        _size = 'px-8 py-3 text-xl'
         break
 
       default:
-        _size = 'px-5 py-2 text-base'
+        _size = 'px-6 py-2 text-base'
         break
     }
 
     return _size
   }
   return (
-    <div
+    <button
       className={[
-        'relative rounded-full cursor-pointer capitalize hover:bg-black hover:text-third hover:border-transparent transition-all tr drop-shadow-md hover:drop-shadow-xl',
+        'button',
         getColors(),
         getSize(),
+        variant === 'cta' ? 'cta-button' : '',
       ].join(' ')}
       aria-hidden
     >
       {children}
-    </div>
+    </button>
   )
 }
 

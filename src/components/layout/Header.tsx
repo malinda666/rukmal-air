@@ -163,14 +163,14 @@ const Header: FC = () => {
               {navData.map((item) =>
                 item.title.toLowerCase() === 'contact' ? (
                   <span
-                    className='text-third mx-2 font-title text-sm'
+                    className='text-third mx-2 font-title text-base navbar-item'
                     key={item.title}
                   >
                     {item.title} Us
                   </span>
                 ) : (
                   <span
-                    className='text-light mx-2 font-title text-sm'
+                    className='text-light mx-2 font-title text-base navbar-item'
                     key={item.title}
                   >
                     {item.title}
@@ -222,7 +222,10 @@ const Header: FC = () => {
           )}
         </ul>
       </nav>
-      <div className='fixed inset-0 z[98] bg-black' id='js--overlay'></div>
+      <div
+        className='fixed inset-0 h-full w-full z-[999] bg-black'
+        id='js--overlay'
+      ></div>
     </>
   )
 }
