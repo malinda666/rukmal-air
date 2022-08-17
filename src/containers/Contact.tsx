@@ -4,7 +4,7 @@ import { Section } from '@/components'
 
 const Contact: FC = () => {
   return (
-    <Section>
+    <Section isLight>
       <div>contact section</div>
     </Section>
   )

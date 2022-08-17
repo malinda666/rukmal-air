@@ -9,10 +9,10 @@
   justify-items: center;
   align-items: center;
   grid-template-areas:
-    '. . . hero-video hero-video hero-video . .'
-    '. . . hero-video hero-video hero-video . .'
-    'hero-left hero-left . hero-video hero-video hero-video . .'
-    'hero-left hero-left . hero-video hero-video hero-video . .'
+    '. . hero-video hero-video hero-video hero-video . .'
+    '. . hero-video hero-video hero-video hero-video . .'
+    'hero-left hero-left hero-video hero-video hero-video hero-video . .'
+    'hero-left hero-left hero-video hero-video hero-video hero-video . .'
     'hero-left hero-left . . . . hero-right hero-right'
     'hero-left hero-left hero-intro hero-intro hero-intro hero-intro hero-right hero-right'
     '. . hero-intro hero-intro hero-intro hero-intro hero-right hero-right';
@@ -28,7 +28,7 @@
 
 .hero-right {
   grid-area: hero-right;
-  z-index: -1;
+  z-index: 0;
 }
 
 .hero-left {

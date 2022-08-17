@@ -162,7 +162,7 @@ const Header: FC = () => {
   return (
     <>
       <header
-        className='fixed top-0 left-0 w-full px-16 py-6 z-[99] flex items-center justify-between'
+        className='fixed top-0 left-0 w-full px-16 py-6 z-[99] flex items-center justify-between mix-blend-exclusion'
         ref={headerWrapper}
       >
         <div className='relative w-auto'>

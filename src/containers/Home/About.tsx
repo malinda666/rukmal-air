@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import Image from 'next/image'
 
-import { Button, Title, Section } from '@/components'
+import { Button, Title, Section, Paragraph } from '@/components'
 
 const About: FC = () => {
   return (
-    <Section isLight height={150} cls='mt-64'>
+    <Section isLight size='xl' cls='mt-64'>
       <div className='relative w-full flex flex-col items-center justify-center'>
         <div className='relative grid grid-rows-4 gap-2'>
           <Title
@@ -28,11 +28,11 @@ const About: FC = () => {
           />
         </div>
         <div className='flex items-center justify-between w-full px-16'></div>
-        <p className='mr-5 w-2/3 text-base text-gray-700 sm:text-lg text-center'>
+        <Paragraph cls='mt-8'>
           Feel the wind in your hair and the sun on your face as you experience
           the thrill of flying in a helicopter. <br /> A once-in-a-lifetime
           opportunity to experience the breathtaking beauty of Sri Lanka.
-        </p>
+        </Paragraph>
         <div className='justify-center items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 pt-8'>
           <Button variant='primary' size='md'>
             VIP Booking

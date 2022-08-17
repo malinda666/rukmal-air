@@ -2,7 +2,7 @@ import { FC, useRef, useEffect, MutableRefObject } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
 
-import { Title, Button, Section } from '@/components'
+import { Title, Button, Section, Paragraph } from '@/components'
 
 const Hero: FC = () => {
   const titleContainerRef = useRef() as MutableRefObject<HTMLDivElement>
@@ -70,12 +70,12 @@ const Hero: FC = () => {
           className='absolute hero-intro h-full flex flex-col items-center justify-end'
           ref={introRef}
         >
-          <p className='text-base text-gray-400 px-4 max-w-md text-center mb-8'>
+          <Paragraph cls='mb-8'>
             Feel the wind in your hair and the sun on your face as you
             experience the thrill of flying in a helicopter. <br /> A
             once-in-a-lifetime opportunity to experience the breathtaking beauty
             of Sri Lanka.
-          </p>
+          </Paragraph>
           <Button variant='cta'>
             <a href='tel:0770473278' target='_self'>
               <span className=''>Call Now</span>
