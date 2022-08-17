@@ -26,7 +26,7 @@ export const navData = [
     path: '/',
   },
   {
-    title: 'Contact',
+    title: 'Contact Us',
     path: '/',
   },
 ]
@@ -77,3 +77,5 @@ export const socialData = [
     path: '/',
   },
 ]
+
+export { servicesData } from './sectionData'

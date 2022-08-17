@@ -5,6 +5,8 @@ import { gsap } from 'gsap/dist/gsap'
 
 import { MenuIcon, CloseIcon } from '../shared/MenuIcons'
 
+import NavItem from './NavItem'
+
 import { navData, socialData } from '@/data'
 
 const Header: FC = () => {
@@ -64,14 +66,9 @@ const Header: FC = () => {
   useEffect(() => {
     const openmenubutton =
       gsap.utils.selector('#js--menu-button')('#js--menu-open')
-    // const openmenubuttonsvg = gsap.utils.selector('#js--menu-button')(
-    //   '#js--menu-open > svg > line'
-    // )
+
     const closemenubutton =
       gsap.utils.selector('#js--menu-button')('#js--menu-close')
-    // const closemenubuttonsvg = gsap.utils.selector('#js--menu-button')(
-    //   '#js--menu-close > svg > line'
-    // )
 
     const menuoverlay = gsap.utils.selector(document)('#js--overlay')
     const menuitems = gsap.utils.selector('#js--menu')('#js--menu-item')
@@ -80,11 +77,7 @@ const Header: FC = () => {
     gsap.set(closemenubutton, {
       opacity: 0,
     })
-    // gsap.set(closemenubuttonsvg, {
-    //   strokeDashoffset: 0.001,
-    //   strokeDasharray: '0px, 999999px',
-    //   opacity: 0,
-    // })
+
     menuTl.current = gsap.timeline({
       paused: true,
       defaults: { ease: 'none', duration: 0.3 },
@@ -96,7 +89,7 @@ const Header: FC = () => {
         openmenubutton,
         { yPercent: 0, opacity: 1 },
         {
-          yPercent: 30,
+          yPercent: -30,
           opacity: 0,
         },
         0
@@ -137,21 +130,23 @@ const Header: FC = () => {
       )
       .fromTo(
         closemenubutton,
-        { yPercent: -30, opacity: 0 },
+        { yPercent: 30, opacity: 0 },
         {
           yPercent: 0,
           opacity: 1,
         },
         0.3
       )
-      .set(document.body, { overflow: 'hidden' }, 0.2)
+    // .set(document.body, { overflow: 'hidden' }, 0.2)
   }, [])
 
   useEffect(() => {
     if (!isMenuOpen) {
       menuTl.current.reverse()
+      gsap.set(document.body, { overflow: 'auto' })
     } else {
       menuTl.current.play()
+      gsap.set(document.body, { overflow: 'hidden' })
     }
   }, [isMenuOpen])
 
@@ -173,24 +168,15 @@ const Header: FC = () => {
         </div>
         <div className='relative flex-1 flex items-center justify-end'>
           <nav id='js--navbar' className='absolute'>
-            <ul>
-              {navData.map((item) =>
-                item.title.toLowerCase() === 'contact' ? (
-                  <span
-                    className='text-third mx-2 font-title text-base navbar-item'
-                    key={item.title}
-                  >
-                    {item.title} Us
-                  </span>
-                ) : (
-                  <span
-                    className='text-light mx-2 font-title text-base navbar-item'
-                    key={item.title}
-                  >
-                    {item.title}
-                  </span>
-                )
-              )}
+            <ul className='flex'>
+              {navData.map((item) => (
+                <li key={item.title}>
+                  <NavItem
+                    item={item}
+                    isCta={item.title.toLowerCase() === 'contact us'}
+                  />
+                </li>
+              ))}
             </ul>
           </nav>
           <button
@@ -233,7 +219,7 @@ const Header: FC = () => {
                 key={item.title}
               >
                 <span
-                  className='text-light mx-2 font-title text-[5vw] navbar-item'
+                  className='text-light mx-2 font-title text-[5vw] menu-item'
                   id='js--menu-item'
                 >
                   {item.title}
@@ -248,9 +234,10 @@ const Header: FC = () => {
         >
           {socialData.map((item) => (
             <a href='#' key={item.title} className='m-2'>
-              <span className='text-gray-500 hover:text-gray-900 dark:hover:text-white'>
+              {/* <span className='text-gray-500 hover:text-gray-900 dark:hover:text-white'>
                 &#10035; {item.title}
-              </span>
+              </span> */}
+              <NavItem item={item} />
             </a>
           ))}
         </div>

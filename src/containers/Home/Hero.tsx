@@ -20,7 +20,7 @@ const Hero: FC = () => {
         trigger: titleContainerRef.current,
         start: 'center center',
         // end: '+=500px',
-        toggleActions: 'play none none reverse',
+        // toggleActions: 'play none none reverse',
         scrub: 1,
         pin: false,
         // markers: true,
